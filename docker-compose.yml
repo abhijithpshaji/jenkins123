@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  web1:
+    image: jj
+    build:
+      dockerfile: Dockerfile 
+    container_name: ubuntu-nginx
+    ports:
+    - "2345:80"
