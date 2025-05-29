@@ -4,6 +4,6 @@ services:
     image: jj
     build:
       dockerfile: Dockerfile 
-    container_name: ubuntu-nginx1
+    container_name: ubuntu-nginx2
     ports:
     - "2345:80"
