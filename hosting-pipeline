@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    environment {
+        GIT_TOKEN = credentials('my-token') // Jenkins secret
+        REPO_URL = 'https://github.com/abhijithpshaji/jenkins123.git'
+        BRANCH = 'main'
+    }
+
+    stages {
+        stage('Git Connection') {
+            steps {
+                script {
+                    echo "[Stage 1] Cloning repository..."
+                    sh '''
+                      rm -rf jenkins123
+                    git clone https://${GIT_TOKEN}@github.com/abhijithpshaji/jenkins123.git -b ${BRANCH}
+                    '''
+                }
+            }
+        }
+
+        stage('hosting') {
+            steps {
+                script {
+                    echo "[Stage 2] Building Docker image..."
+                    sh '''
+                    cd jenkins123
+                    echo "aaa" | sudo -S cp -r css /var/www/html
+                    '''
+                }
+            }
+        }
+    }
+}
+
