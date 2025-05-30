@@ -4,6 +4,6 @@ services:
     image: asd:latest
     build:
       dockerfile: Dockerfile 
-    container_name: ubuntu-nginx123
+    container_name: ubuntu-nginx55
     ports:
     - "3333:80"
